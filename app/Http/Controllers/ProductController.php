@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('products.index');
+        $products   =   Products::all();
+        return view('products.index',  compact('products') );
     }
 
     /**
@@ -68,9 +71,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $product_id)
     {
-        //
+
+        $is_paid  =  DB::table('products')->whereId($product_id)->update(['is_paid_for' => true]);
+        $product  =  DB::table('payments')->InsertGetId(['product_id' => $product_id ]);
+
+         session()->flash('message', 'Product  Paid "#'.$product.'"');
+         return redirect()->route('products.index');
+
     }
 
     /**
@@ -82,8 +91,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //code
-        $remove_product =  DB::table('users')->whereId($id)->delete();
-            session()->flash('message', 'Product "#'.$remove_product.'" successfully deleted.');
+        $remove_product =  DB::table('products')->whereId($id)->delete();
+            session()->flash('message', 'Product "#'.$id.'" successfully deleted.');
          return redirect()->route('products.index');
     }
 }

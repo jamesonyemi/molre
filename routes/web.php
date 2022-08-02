@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/upload', UploadProduct::class)->name('upload-product');
 Route::resource('/products', ProductController::class);
+Route::get('/upload', UploadProduct::class)->name('upload-product');
 
 

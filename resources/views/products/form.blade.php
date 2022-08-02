@@ -1,6 +1,6 @@
 <!-- Modal toggle -->
 <!-- Main modal -->
-<div id="authentication-modal" tabindex="-1" class="inset-0 bg-gray-500 bg-opacity-75 backdrop-blur-xl bg-white/30 transition-opacity overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex " aria-modal="true" role="dialog" >
+<div id="authentication-modal" tabindex="-1" class="inset-0 bg-gray-500 bg-opacity-75 backdrop-blur-xl bg-white/30 transition-opacity h-auto overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex " aria-modal="true" role="dialog" >
   <div class="relative p-4 w-full max-w-md h-full md:h-auto">
     <!-- Modal content -->
     <div class="relative bg-white rounded-md shadow dark:bg-gray-700">
@@ -11,12 +11,13 @@
       <div class="py-3 px-3 lg:px-4">
         <div class="py-4 -px-2 rounded-t border-b dark:border-gray-600">
           <h3 class="text-xl font-medium text-gray-900 lg:text-md dark:text-white">
-           Publish Product
+           Publish a Product
           </h3>
         </div>
         <div class="my-4 space-y-3">
         </div>
-        <form class="space-y-6" wire:submit.prevent="save">
+        <form class="space-y-6" wire:submit="save">
+            @csrf
           <div>
             <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Product Name</label>
             <input wire:model.lazy="product_name" type="text" name="product" id="product" autofocus class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Black T-shirt" required />
@@ -36,7 +37,7 @@
                 <input wire:model.lazy="price" type="text" name="price" id="price" class="bg-gray-50 border text-gray-900 text-sm  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white focus:ring-indigo-500 focus:border-indigo-500 block p-2.5 w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" required />
                 <div class="absolute inset-y-0 right-0 flex items-center">
                   <label for="currency" class="sr-only">Currency</label>
-                  <select wire:model.lazy="currency" id="currency" name="currency" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md" required >
+                  <select wire:model.lazy="currency_symbol" id="currency_symbol" name="currency_symbol" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md" required >
                     <option value="$">USD</option>
                     <option>CAD</option>
                     <option>EUR</option>
@@ -68,7 +69,7 @@
                   <div wire:loading wire:target="photo">Uploading...</div>
                 </div>
                 @if (@$photo)
-                <img class="mr-3 flex-none w-[0.0625rem] overflow-hidden md:w-auto" src="{{ $photo->temporaryUrl() }}" alt="product image preview">
+                <img class="ml-[5rem] mr-[5rem] flex-none w-[0.0625rem] h-[12rem] overflow-hidden md:w-auto" src="{{ $photo->temporaryUrl() }}" alt="product image preview">
                 @endif
                 <div class="w-full">
                     <p class="text-gray-500 text-xs">customer are likely to buy a product with sample image</p>

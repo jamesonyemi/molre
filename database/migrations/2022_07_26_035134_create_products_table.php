@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name', 255);
             $table->unsignedDecimal('price');
-            $table->string('currency_symbol');
+            $table->string('currency_symbol')->default("$");
             $table->string('variant')->nullable();
-            $table->boolean('is_paid_for')->default(0); 
+            $table->boolean('is_paid_for')->default(0);
             $table->string('photo');
             $table->timestamps();
         });

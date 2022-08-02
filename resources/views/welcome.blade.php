@@ -55,7 +55,7 @@
                                         <li>
                                             <button id="open-modal" data-modal-toggle="authentication-modal"
                                                 class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 hover:bg-zinc-500 md:hover:bg-transparent md:border-0 md:hover:text-orange-900 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                                                Create Product
+                                                Start Selling
                                             </button>
                                         </li>
                                     </ul>
@@ -69,18 +69,16 @@
                 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                     <div class="sm:text-center lg:text-left">
                         <h1 class="text-4xl tracking-tight font-extrabold text-gray-700 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline">Secure and Easy</span>
-                            <span class="block text-orange-700 sm:inline">Online Shopping</span>
+                            <span class="block xl:inline">Turn ideas into designs for your apparel collection</span>
                         </h1>
                         <p
                             class="mt-3 text-base text-gray-500 0 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Moolre helps manage your money directly in-app while shopping with your card no matter where
-                            you are. </p>
-                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            Sell made-to-order custom goods with no inventory or upfront cost. </p>
+                        <div class="mt-4 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
                                 <a href="{{ route('products.index') }}"
-                                    class="w-full flex items-center justify-center px-8 py-1 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-800 md:py-1 md:text-lg md:px-10">
-                                    <svg aria-hidden="true" class="animate-bounce text-orange-300 w-6 h-6 mr-2"
+                                    class="w-full flex items-center justify-center px-8 py-1 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-indigo-500 via-[#924c66] to-pink-500 text-white  hover:bg-gray-800 md:py-1 md:text-lg md:px-10">
+                                    <svg aria-hidden="true" class="animate-bounce text-white w-6 h-6 mr-2"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
