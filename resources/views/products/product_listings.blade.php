@@ -46,7 +46,7 @@
                         @include('partials.e_commerce_btn',
                             [
                                 'product_id' => $product->id,
-                                
+
                         ])
                     </div>
                      @endif

@@ -77,7 +77,7 @@
                         <div class="mt-4 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
                                 <a href="{{ route('products.index') }}"
-                                    class="w-full flex items-center justify-center px-8 py-1 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-indigo-500 via-[#924c66] to-pink-500 text-white  hover:bg-gray-800 md:py-1 md:text-lg md:px-10">
+                                    class="w-full flex items-center justify-center px-8 py-1 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-indigo-500  to-pink-500 text-white  hover:bg-gray-800 md:py-1 md:text-lg md:px-10">
                                     <svg aria-hidden="true" class="animate-bounce text-white w-6 h-6 mr-2"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
