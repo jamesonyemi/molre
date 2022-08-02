@@ -41,12 +41,13 @@ class UploadProduct extends Component
             'photo' => $this->photo->store('product_images'),
             'price' => $this->price,
             'product_name' => $this->product_name,
+            'currency_symbol' => '$',
          ]);
 
          session()->flash('message', 'Product "#'.$create_product->id.'" successfully updated.');
          return redirect()->route('products.index');
 
     }
-        
+
 
 }

@@ -77,7 +77,7 @@ class ProductController extends Controller
         $is_paid  =  DB::table('products')->whereId($product_id)->update(['is_paid_for' => true]);
         $product  =  DB::table('payments')->InsertGetId(['product_id' => $product_id ]);
 
-         session()->flash('message', 'Product  Paid "#'.$product.'"');
+         session()->flash('message', 'Product  Paid');
          return redirect()->route('products.index');
 
     }

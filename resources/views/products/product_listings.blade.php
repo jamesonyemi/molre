@@ -23,7 +23,9 @@
                     </a>
                 </div>
                 <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    @if(!empty($products))
                     @foreach ($products as $product)
+                        @if(!$product->is_paid_for)
                     <div class="">
                         <div
                             class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
@@ -40,12 +42,18 @@
                             </div>
                             <p class="text-xl font-semibold text-gray-900">{{ $product->currency_symbol . '' . number_format($product->price)}}</p>
                         </div>
+                        
                         @include('partials.e_commerce_btn',
                             [
                                 'product_id' => $product->id,
+                                
                         ])
                     </div>
+                     @endif
                     @endforeach
+                    @else
+                    <span class="bg-white text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">No product available</span>
+                  @endif
                 </div>
             </div>
         </div>
