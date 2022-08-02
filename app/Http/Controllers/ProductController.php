@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products   =   Products::all();
+        $products   =   Products::latest()->whereIsPaidFor(false)->orderBy('id', 'desc')->get();
         return view('products.index',  compact('products') );
     }
 

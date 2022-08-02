@@ -16,7 +16,6 @@ class UploadProduct extends Component
     public $price;
     public $product_name;
 
-
     protected $rules = [
         'photo' => 'file|mimes:png,jpg,pdf|max: 1024 * 5', // 5MB Max
         'price' => 'required|integer|min:0',
@@ -38,7 +37,7 @@ class UploadProduct extends Component
 
         $this->validate();
         $create_product = Products::create([
-            'photo' => $this->photo->store('product_images'),
+            'photo' => $this->photo->store('product_images', 'public'),
             'price' => $this->price,
             'product_name' => $this->product_name,
             'currency_symbol' => '$',
@@ -48,6 +47,6 @@ class UploadProduct extends Component
          return redirect()->route('products.index');
 
     }
-
+    
 
 }

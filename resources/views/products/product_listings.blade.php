@@ -10,7 +10,7 @@
 <body class="">
     <div class="" style="">
         <div class="bg-white">
-           @include('partials.alert')
+            @include('partials.alert')
             <div class="max-w-6xl h-full mx-auto py-6 px-4 sm:py-4 sm:px-6 lg:max-w-8xl lg:px-8">
                 <div class="flex items-center justify-between">
                     <div class="flex min-w-0 items-center">
@@ -23,13 +23,15 @@
                     </a>
                 </div>
                 <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    @if(!empty($products))
+                    @if(($products->isEmpty()))
+                            <span class="mt-5 w-full bg-white text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">No product available</span>
+                    @endif
                     @foreach ($products as $product)
                         @if(!$product->is_paid_for)
                     <div class="">
                         <div
                             class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                            <img src="{{ asset('storage/'.$product->photo) }}" alt="Front of men's Basic Tee in black."
+                            <img src="{{ Storage::url($product->photo) }}" alt="Front of men's Basic Tee in black."
                                 class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                             card
                         </div>
@@ -42,24 +44,19 @@
                             </div>
                             <p class="text-xl font-semibold text-gray-900">{{ $product->currency_symbol . '' . number_format($product->price)}}</p>
                         </div>
-                        
+
                         @include('partials.e_commerce_btn',
                             [
                                 'product_id' => $product->id,
-
                         ])
                     </div>
                      @endif
                     @endforeach
-                    @else
-                    <span class="bg-white text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">No product available</span>
-                  @endif
                 </div>
             </div>
         </div>
-
+        
     </div>
-
     <script>
         document.querySelector("#close-alert-button").addEventListener("click", ()=> {
         document.querySelector("#alert-3").remove()
