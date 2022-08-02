@@ -43,7 +43,7 @@ class UploadProduct extends Component
             'currency_symbol' => '$',
          ]);
 
-         session()->flash('message', 'Product "#'.$create_product->id.'" successfully updated.');
+         session()->flash('message', 'Product successfully created.');
          return redirect()->route('products.index');
 
     }
